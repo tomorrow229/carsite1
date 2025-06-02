@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Отзывы — Автопарк</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="background">
+  <!-- Навигация -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="park.html">Наш автопарк</a></li>
+      <li><a href="reviews.html" class="active">Отзывы</a></li>
+      <li><a href="login.php">Вход</a></li>
+      <li><a href="register.php">Регистрация</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2 class="centered">Отзывы наших клиентов</h2>
+    <div class="reviews-grid">
+      <!-- Отзыв 1 -->
+      <div class="review-card fade-in">
+        <img src="images/cl3.jpg" alt="Клиент" class="review-img">
+        <h3>Иван Петров</h3>
+        <div class="stars">★★★★★</div>
+        <p>Отличный сервис! Арендовал BMW на выходные, всё прошло идеально. Машина в прекрасном состоянии.</p>
+      </div>
+      
+      <!-- Отзыв 2 -->
+      <div class="review-card fade-in">
+        <img src="images/cl1.jpg" alt="Клиент" class="review-img">
+        <h3>Елена Смирнова</h3>
+        <div class="stars">★★★★☆</div>
+        <p>Очень довольна арендой Mercedes. Единственное - немного задержали с оформлением документов.</p>
+      </div>
+      
+      <!-- Отзыв 3 -->
+      <div class="review-card fade-in">
+        <img src="images/cl2.jpg" alt="Клиент" class="review-img">
+        <h3>Алексей Козлов</h3>
+        <div class="stars">★★★★★</div>
+        <p>Лучший автопарк в городе! BMW Z4 просто огонь, получил массу удовольствия от поездки.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>Контакты</h3>
+        <p>📞 +7 (922) 387-68-79</p>
+        <p>✉ ep220247@gmail.com</p>
+        <p>📍 г. Чайковский, ул. Кабалевского, 20</p>
+      </div>
+      <div class="footer-right">
+        <h3>Мы в соцсетях</h3>
+        <div class="social-icons">
+          <a href="@hokvge1337"><img src="images/tg.png" alt="Telegram" /></a>
+          <a href="https://m.vk.com/hok6ge"><img src="images/vk.png" alt="VK" /></a>
+          <a href="#"><img src="images/inst.png" alt="Instagram" /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Анимация появления отзывов
+    document.addEventListener('DOMContentLoaded', function() {
+      const reviews = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      reviews.forEach(review => {
+        observer.observe(review);
+      });
+    });
+  </script>
+</body>
+</html>
